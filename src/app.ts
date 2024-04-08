@@ -38,6 +38,8 @@ const originalSend = app.response.send;
     this.responseBody = body;
 };
 
+import orderRouter from "./routes/order"
+app.use("/api", orderRouter);
 
 app.get("/ping", (req, res) => {
     return res.status(200).json({ message: "PING PONG" });

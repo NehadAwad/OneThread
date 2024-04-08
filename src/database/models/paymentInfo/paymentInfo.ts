@@ -16,7 +16,7 @@ export interface IPaymentInfoModel {
     billingAddress: BillingAddress;
 }
 
-const paymentInfoSchema = new Schema<IPaymentInfoModel>({
+export const paymentInfoSchema = new Schema<IPaymentInfoModel>({
     method: { type: String, required: true },
     cardNumber: { type: String, required: true },
     expiryDate: { type: String, required: true },
