@@ -1,19 +1,19 @@
-import mongoose, { Schema, HydratedDocument, Types } from "mongoose";
+import mongoose, { Schema, HydratedDocument } from "mongoose";
 import { IPaymentInfoModel, paymentInfoSchema } from "../paymentInfo/paymentInfo"
 
 export interface IOrderModel {
-    userId: Types.ObjectId;
-    productIds: Types.ObjectId[];
-    quantities: number[];
+    userId: String;
+    productIds: String;
+    quantities: number;
     paymentInfo: IPaymentInfoModel;
 }
 
 const orderSchema = new Schema<IOrderModel>({
-    userId: { type: Schema.Types.ObjectId, required: true },
-    productIds: [{ type: Schema.Types.ObjectId, required: true }],
-    quantities: { type: [Number], required: true },
-    paymentInfo: { type: paymentInfoSchema, required: true }
-})
+    userId: { type: String, required: true },
+    productIds: [{ type: String, required: true }],
+    quantities: { type: Number, required: true },
+    paymentInfo: { type: paymentInfoSchema, required: true },
+}, { timestamps: true })
 
 export type IOrderDocument = HydratedDocument<IOrderModel>;
 
