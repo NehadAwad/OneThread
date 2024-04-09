@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const createOrderSchema = yup.object().shape({
+export const createOrUpdateOrderSchema = yup.object().shape({
     userId: yup.string().required("User ID is required"),
     productIds: yup.array().of(
         yup.string().required("Product ID is required")
@@ -12,3 +12,5 @@ export const createOrderSchema = yup.object().shape({
         billingAddress: yup.string().required("Billing address is required"),
     }),
 });
+
+
